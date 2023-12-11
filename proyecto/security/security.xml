@@ -1,0 +1,49 @@
+<!-- security.xml -->
+<odoo>
+    <data>
+        <!-- Grupo para el administrador -->
+        <record id="group_admin" model="res.groups">
+            <field name="name">Administrador</field>
+            <field name="implied_ids" eval="[(4, ref('base.group_system'))]" />
+        </record>
+
+        <!-- Grupo para el jefe de proyecto -->
+        <record id="group_jefe_proyecto" model="res.groups">
+            <field name="name">Jefe de Proyecto</field>
+        </record>
+
+        <!-- Grupo para el analista -->
+        <record id="group_analista" model="res.groups">
+            <field name="name">Analista</field>
+        </record>
+
+        <!-- Grupo para el programador -->
+        <record id="group_programador" model="res.groups">
+            <field name="name">Programador</field>
+        </record>
+
+        <!-- Regla de acceso para el administrador -->
+        <record id="rule_admin" model="ir.rule">
+            <field name="name">Regla para Administrador</field>
+            <field name="model_id" ref="model_res_users" />
+            <field name="domain_force">[(1,'=',1)]</field>
+            <field name="groups" eval="[(4, ref('group_admin'))]" />
+        </record>
+
+        <!-- Regla de acceso para el jefe de proyecto -->
+        <record id="rule_jefe_proyecto" model="ir.rule">
+            <!-- Define la regla de acceso según tus necesidades -->
+        </record>
+
+        <!-- Regla de acceso para el analista -->
+        <record id="rule_analista" model="ir.rule">
+            <!-- Define la regla de acceso según tus necesidades -->
+        </record>
+
+        <!-- Regla de acceso para el programador -->
+        <record id="rule_programador" model="ir.rule">
+            <!-- Define la regla de acceso según tus necesidades -->
+        </record>
+
+    </data>
+</odoo>

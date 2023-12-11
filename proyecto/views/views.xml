@@ -1,7 +1,30 @@
 <odoo>
   <data>
+
+
+    <!-- views.xml -->
+
+    <record id="view_proyecto_form_inherit" model="ir.ui.view">
+      <field name="name">mi_modulo.proyecto.form.inherit</field>
+      <field name="model">mi_modulo.proyecto</field>
+      <field name="inherit_id" ref="project.view_project_form" />
+      <field name="arch" type="xml">
+        <!-- Agregar o modificar campos según sea necesario -->
+        <xpath expr="//field[@name='name']" position="after">
+          <field name="contratista_id" />
+          <field name="tareas_ids" />
+          <field name="total_tareas" />
+        </xpath>
+
+      </field>
+    </record>
+
+
+    <!-- Similar para los otros modelos (proyecto, tarea, subtarea) -->
+
+
     <!-- explicit list view definition -->
-<!--
+    <!--
     <record model="ir.ui.view" id="proyecto.list">
       <field name="name">proyecto list</field>
       <field name="model">proyecto.proyecto</field>
@@ -16,16 +39,14 @@
 -->
 
     <!-- actions opening views on models -->
-<!--
     <record model="ir.actions.act_window" id="proyecto.action_window">
       <field name="name">proyecto window</field>
       <field name="res_model">proyecto.proyecto</field>
       <field name="view_mode">tree,form</field>
     </record>
--->
 
     <!-- server action to the one above -->
-<!--
+    <!--
     <record model="ir.actions.server" id="proyecto.action_server">
       <field name="name">proyecto server</field>
       <field name="model_id" ref="model_proyecto_proyecto"/>
@@ -41,20 +62,21 @@
 -->
 
     <!-- Top menu item -->
-<!--
-    <menuitem name="proyecto" id="proyecto.menu_root"/>
--->
+    <menuitem name="proyecto" id="proyecto.menu_root" />
+
     <!-- menu categories -->
-<!--
-    <menuitem name="Menu 1" id="proyecto.menu_1" parent="proyecto.menu_root"/>
-    <menuitem name="Menu 2" id="proyecto.menu_2" parent="proyecto.menu_root"/>
--->
+    <menuitem name="Menu 1" id="proyecto.menu_1" parent="proyecto.menu_root" />
+    <menuitem name="Menu 2" id="proyecto.menu_2" parent="proyecto.menu_root" />
+    <menuitem name="Menu 2" id="proyecto.menu_3" parent="proyecto.menu_root" />
     <!-- actions -->
-<!--
+
     <menuitem name="List" id="proyecto.menu_1_list" parent="proyecto.menu_1"
-              action="proyecto.action_window"/>
+      action="proyecto.action_window" />
+
+    <!--
     <menuitem name="Server to list" id="proyecto" parent="proyecto.menu_2"
-              action="proyecto.action_server"/>
--->
+      action="proyecto.action_server" />
+ -->
+
   </data>
 </odoo>

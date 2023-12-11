@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "proyecto",
+    'name': "PROYECTO-ODOO",
 
     'summary': """
         Short (1 phrase/line) summary of the module's purpose, used as
@@ -10,7 +10,7 @@
         Long description of module's purpose
     """,
 
-    'author': "My Company",
+    'author': "DIEGO",
     'website': "https://www.yourcompany.com",
 
     # Categories can be used to filter modules in modules listing
@@ -32,4 +32,6 @@
     'demo': [
         'demo/demo.xml',
     ],
+
+    'aplication' : True
 }
