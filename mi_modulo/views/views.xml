@@ -29,12 +29,14 @@
     </record>
 
 
-    <record model="ir.ui.view" id="view_project_form_inherit" >
-      <field name="name">Proyecto</field>
+    <record model="ir.ui.view" id="project_addon">
+      <field name="name">project_addon</field>
       <field name="model">project.project</field>
       <field name="inherit_id" ref="project.edit_project" />
       <field name="arch" type="xml">
-        <field name="empresas_contratadoras" />
+        <field name="user_id" position="after">
+          <field name="contratadora" />
+        </field>
       </field>
     </record>
 
@@ -46,14 +48,11 @@
     </record>
 
 
-    <!-- <menuitem name="EmpresaContratista" id="empresa_contratista.menu_root" />
+    <menuitem name="empresa_contratista" id="empresacontratista.menu_root" />
 
 
-    <menuitem name="EmpresaContratista" id="empresa_contratista_menu" parent="incidencias.menu_root" />
-
-
-    <menuitem name="EmpresaContratista" id="empresa_contratista_menu_1"
-      parent="empresa_contratista_menu" action="empresa_contratista_action_window" /> -->
+    <menuitem name="Empresa Contratista" id="empresa_contratista_menu" parent="incidencias.menu_root" />
+    <menuitem name="Empresa Contratista" id="empresa_contratista_menu_1" parent="empresa_contratista_menu" action="empresa_contratista_action_window" />
 
   </data>
 </odoo>
