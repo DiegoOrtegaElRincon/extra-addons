@@ -2,25 +2,27 @@
   <data>
     <!-- views.xml -->
 
-    <record model="ir.ui.view" id="mi_modulo.empresa_contratista_tree">
-      <field name="name">mi_modulo.empresa_contratista.tree</field>
-      <field name="model">mi_modulo.empresa_contratista</field>
+    <record model="ir.ui.view" id="empresa_contratista_tree">
+      <field name="name">empresa_contratista.tree</field>
+      <field name="model">empresa_contratista</field>
       <field name="arch" type="xml">
         <tree>
           <field name="name" />
           <field name="direccion" />
+          <field name="display_info" />
         </tree>
       </field>
     </record>
 
-    <record model="ir.ui.view" id="mi_modulo.empresa_contratista_form">
-      <field name="name">mi_modulo.empresa_contratista.form</field>
-      <field name="model">mi_modulo.empresa_contratista</field>
+    <record model="ir.ui.view" id="empresa_contratista_form">
+      <field name="name">empresa_contratista.form</field>
+      <field name="model">empresa_contratista</field>
       <field name="arch" type="xml">
         <form>
           <group colspan="2" col="2">
             <field name="name" />
             <field name="direccion" />
+            <field name="display_info" />
           </group>
         </form>
       </field>
@@ -43,37 +45,24 @@
     </record> -->
 
     <!-- actions opening views on models -->
-    <record model="ir.actions.act_window" id="empresa_contratista.action_window">
-      <field name="name">empresa_contratista</field>
+    <record model="ir.actions.act_window" id="empresa_contratista_action_window">
+      <field name="name">Empresa Contratista</field>
       <field name="res_model">empresa_contratista</field>
       <field name="view_mode">tree,form</field>
     </record>
 
-    <!-- server action to the one above -->
-    <!--
-    <record model="ir.actions.server" id="proyecto.action_server">
-      <field name="name">proyecto server</field>
-      <field name="model_id" ref="model_proyecto_proyecto"/>
-      <field name="state">code</field>
-      <field name="code">
-        action = {
-          "type": "ir.actions.act_window",
-          "view_mode": "tree,form",
-          "res_model": model._name,
-        }
-      </field>
-    </record>
--->
-
     <!-- Top menu item -->
-    <menuitem name="Empresa Contratista" id="empresa_contratista.menu_root" />
+
+    <menuitem name="EmpresaContratista" id="empresa_contratista.menu_root" />
 
     <!-- menu categories -->
-    <menuitem name="Empresa Contratista" id="empresa_contratista.menu"
-      parent="empresa_contratista.menu_root" />
-      
-    <menuitem name="Empresa Contratista" id="empresa_contratista_menu_empresa_contratista"
-      parent="empresa_contratista.menu_root" action="empresa_contratista.action_window" />
+
+    <menuitem name="EmpresaContratista" id="empresa_contratista_menu" parent="incidencias.menu_root" />
+
+    <!-- actions -->
+
+    <menuitem name="EmpresaContratista" id="empresa_contratista_menu_1"
+      parent="empresa_contratista_menu" action="empresa_contratista_action_window" />
 
   </data>
 </odoo>

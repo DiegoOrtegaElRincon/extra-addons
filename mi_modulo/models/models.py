@@ -2,11 +2,18 @@
 from odoo import models, fields, api
 
 class EmpresaContratista(models.Model):
-    _name = 'mi_modulo.empresa_contratista'
-    _description = 'Empresas contratistas'
+    _name = 'empresa_contratista'
+    _description = 'Empresas Contratistas'
 
     name = fields.Char(string='Nombre', required=True)
     direccion = fields.Char(string='Direccion', required=True)
+    display_info = fields.Char(string='Display Info', compute='_compute_display_info')
+
+    @api.depends('name', 'direccion')
+    def _compute_display_info(self):
+        for record in self:
+            record.display_info = "{} - {}".format(record.name, record.direccion)
+
     # proyectos_ids = fields.One2many('project.project', 'contratista_id', string='Proyectos')
  
 # class Proyecto(models.Model):
