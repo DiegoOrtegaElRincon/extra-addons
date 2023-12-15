@@ -8,51 +8,29 @@ class EmpresaContratista(models.Model):
     name = fields.Char(string='Nombre', required=True)
     direccion = fields.Char(string='Direccion', required=True)
     display_info = fields.Char(string='Display Info', compute='_compute_display_info')
+    proyectos_ids = fields.One2many('project.project', 'empresas_contratadoras', string='Proyectos')
 
     @api.depends('name', 'direccion')
     def _compute_display_info(self):
         for record in self:
             record.display_info = "{} - {}".format(record.name, record.direccion)
-
-    # proyectos_ids = fields.One2many('project.project', 'contratista_id', string='Proyectos')
  
-# class Proyecto(models.Model):
-#     _name = 'project.project'
-#     _inherit = 'project.project'
+class Proyecto(models.Model):
+    _inherit = 'project.project'
 
-#     name = fields.Char(string='Campo', required=True)
-    # contratista_id = fields.Many2one('mi_modulo.empresa_contratista', string='Contratista')
-    # tareas_ids = fields.One2many('mi_modulo.tarea', 'proyecto_id', string='Tareas')
-    # total_tareas = fields.Integer(string='Total de Tareas', compute='_compute_total_tareas', store=True)
+    new_field = fields.Char(string='New Field')
+    empresas_contratadoras = fields.Many2one("empresas_contratista",string="Empresa Contratadora",inverse_name='proyectos_ids')
+    tareas_ids = fields.One2many('project.task', 'project_id', string='Tareas')
+    total_tareas = fields.Integer(string='Total de Tareas', compute='_compute_total_tareas', store=True)
     
-    # @api.depends('tareas_ids')
-    # def _compute_total_tareas(self):
-    #     for proyecto in self:
-    #         proyecto.total_tareas = len(proyecto.tareas_ids)
+    @api.depends('tareas_ids')
+    def _compute_total_tareas(self):
+        for proyecto in self:
+            proyecto.total_tareas = len(proyecto.tareas_ids)
 
-# class Tarea(models.Model):
-#     _name = 'mi_modulo.tarea' 
-#     _description = 'Tareas'
-#     _inherit = 'project.task'
+class Tarea(models.Model):
+    _inherit = 'project.task'
 
-#     name = fields.Char(string='Nombre', required=True)
-#     proyecto_id = fields.Many2one('mi_modulo.proyecto', string='Proyecto')
-#     subtareas_ids = fields.One2many('mi_modulo.subtarea', 'tarea_id', string='Subtareas')
+    proyecto_id = fields.Many2one('proyecto', string='Proyecto')
 
-# class Subtarea(models.Model):
-#     _name = 'project.task'
-#     _description = 'Subtareas'
-#     _inherit = 'project.task'
-
-#     name = fields.Char(string='Nombre', required=True)
-#     tarea_id = fields.Many2one('mi_modulo.tarea', string='Tarea')
-
-
-# class ResUsers(models.Model):
-#     _inherit = 'res.users'
-
-#     is_admin = fields.Boolean(string='Es Administrador')
-#     is_jefe_proyecto = fields.Boolean(string='Es Jefe de Proyecto')
-#     is_analista = fields.Boolean(string='Es Analista')
-#     is_programador = fields.Boolean(string='Es Programador')
 

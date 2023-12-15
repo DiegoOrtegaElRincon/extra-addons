@@ -28,21 +28,15 @@
       </field>
     </record>
 
-    <!-- 
-    <record id="view_proyecto_form_inherit" model="ir.ui.view">
-      <field name="name">project.project.form.inherit</field>
-      <field name="model">project.project</field>
-      <field name="inherit_id" ref="project.view_project_form" />
-      <field name="arch" type="xml">
-        
-        <xpath expr="//field[@name='name']" position="after">
-          <field name="contratista_id" />
-          <field name="tareas_ids" />
-          <field name="total_tareas" />
-        </xpath>
 
+    <record model="ir.ui.view" id="view_project_form_inherit" >
+      <field name="name">Proyecto</field>
+      <field name="model">project.project</field>
+      <field name="inherit_id" ref="project.edit_project" />
+      <field name="arch" type="xml">
+        <field name="empresas_contratadoras" />
       </field>
-    </record> -->
+    </record>
 
     <!-- actions opening views on models -->
     <record model="ir.actions.act_window" id="empresa_contratista_action_window">
@@ -51,18 +45,15 @@
       <field name="view_mode">tree,form</field>
     </record>
 
-    <!-- Top menu item -->
 
-    <menuitem name="EmpresaContratista" id="empresa_contratista.menu_root" />
+    <!-- <menuitem name="EmpresaContratista" id="empresa_contratista.menu_root" />
 
-    <!-- menu categories -->
 
     <menuitem name="EmpresaContratista" id="empresa_contratista_menu" parent="incidencias.menu_root" />
 
-    <!-- actions -->
 
     <menuitem name="EmpresaContratista" id="empresa_contratista_menu_1"
-      parent="empresa_contratista_menu" action="empresa_contratista_action_window" />
+      parent="empresa_contratista_menu" action="empresa_contratista_action_window" /> -->
 
   </data>
 </odoo>
