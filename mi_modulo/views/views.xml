@@ -28,31 +28,23 @@
       </field>
     </record>
 
-
     <record model="ir.ui.view" id="project_addon">
       <field name="name">project_addon</field>
       <field name="model">project.project</field>
       <field name="inherit_id" ref="project.edit_project" />
-      <field name="arch" type="xml">
-        <field name="user_id" position="after">
-          <field name="contratadora" />
-        </field>
-      </field>
     </record>
 
-    <!-- actions opening views on models -->
-    <record model="ir.actions.act_window" id="empresa_contratista_action_window">
+    <!--  <record model="ir.actions.act_window" id="empresa_contratista_action_window">
       <field name="name">Empresa Contratista</field>
       <field name="res_model">empresa_contratista</field>
       <field name="view_mode">tree,form</field>
     </record>
 
 
-    <menuitem name="empresa_contratista" id="empresacontratista.menu_root" />
+    <menuitem name="Empresas Contratista" id="empresa_contratista.menu_root" />
 
-
-    <menuitem name="Empresa Contratista" id="empresa_contratista_menu" parent="incidencias.menu_root" />
-    <menuitem name="Empresa Contratista" id="empresa_contratista_menu_1" parent="empresa_contratista_menu" action="empresa_contratista_action_window" />
+    <menuitem name="Empresas" id="empresa_contratista.menu_1"
+      parent="empresa_contratista.menu_root" action="empresa_contratista_action_window" /> -->
 
   </data>
 </odoo>
