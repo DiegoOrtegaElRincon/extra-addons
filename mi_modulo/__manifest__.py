@@ -22,9 +22,10 @@
 
     # always loaded
     'data': [
-        # 'security/security.xml',
-        # 'security/ir.model.access.csv',
+        'security/security.xml',
+        'security/ir.model.access.csv',
         'views/views.xml',
+        'data/product_category_data.xml'
         # 'views/templates.xml',
     ],
     # only loaded in demonstration mode

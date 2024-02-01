@@ -2,9 +2,9 @@
   <data>
     <!-- views.xml -->
 
-    <record model="ir.ui.view" id="empresa_contratista_tree">
-      <field name="name">empresa_contratista.tree</field>
-      <field name="model">empresa_contratista</field>
+    <record model="ir.ui.view" id="mi_modulo.empresa_contratista_tree">
+      <field name="name">mi_modulo.empresa_contratista.tree</field>
+      <field name="model">mi_modulo.empresa_contratista</field>
       <field name="arch" type="xml">
         <tree>
           <field name="name" />
@@ -14,9 +14,9 @@
       </field>
     </record>
 
-    <record model="ir.ui.view" id="empresa_contratista_form">
-      <field name="name">empresa_contratista.form</field>
-      <field name="model">empresa_contratista</field>
+    <record model="ir.ui.view" id="mi_modulo.empresa_contratista_form">
+      <field name="name">mi_modulo.empresa_contratista.form</field>
+      <field name="model">mi_modulo.empresa_contratista</field>
       <field name="arch" type="xml">
         <form>
           <group colspan="2" col="2">
@@ -32,19 +32,42 @@
       <field name="name">project_addon</field>
       <field name="model">project.project</field>
       <field name="inherit_id" ref="project.edit_project" />
-    </record>
+      <field name="arch" type="xml">
+          <xpath expr="//field[@name='name']" position="after">
+              <field name="empresas_contratistas"/>
+              <field name="tareas_ids" widget="one2many_list" colspan="3"/>
+              <field name="total_tareas" readonly="1"/>
+          </xpath>
+      </field>
+  </record>
+  
 
-    <!--  <record model="ir.actions.act_window" id="empresa_contratista_action_window">
+    <record model="ir.actions.act_window" id="mi_modulo.empresa_contratista_action_window">
       <field name="name">Empresa Contratista</field>
-      <field name="res_model">empresa_contratista</field>
+      <field name="res_model">mi_modulo.empresa_contratista</field>
       <field name="view_mode">tree,form</field>
     </record>
 
 
-    <menuitem name="Empresas Contratista" id="empresa_contratista.menu_root" />
+    <record model="ir.actions.act_window" id="project_project_action_window">
+      <field name="name">Proyectos</field>
+      <field name="res_model">project.project</field>
+      <field name="view_mode">tree,form</field>
+    </record>
 
-    <menuitem name="Empresas" id="empresa_contratista.menu_1"
-      parent="empresa_contratista.menu_root" action="empresa_contratista_action_window" /> -->
+    <record model="ir.actions.act_window" id="project_task_action_window">
+      <field name="name">Tareas</field>
+      <field name="res_model">project.task</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <menuitem name="Empresa Contratista" id="mi_modulo.menu_root" />
+
+    <menuitem
+      name="Empresas" id="mi_modulo.empresa_contratista_menu_1"
+      parent="mi_modulo.menu_root"
+      action="mi_modulo.empresa_contratista_action_window" />
 
   </data>
 </odoo>

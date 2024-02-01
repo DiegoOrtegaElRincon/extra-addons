@@ -2,7 +2,7 @@
 from odoo import models, fields, api
 
 class EmpresaContratista(models.Model):
-    _name = 'empresa_contratista'
+    _name = 'mi_modulo.empresa_contratista'
     _description = 'Empresas Contratistas'
 
     name = fields.Char(string='Nombre', required=True)
@@ -20,18 +20,11 @@ class Proyecto(models.Model):
     _inherit = 'project.project'
 
     empresas_contratistas = fields.Many2one("empresas_contratistas",string="Empresa Contratista",inverse_name='proyectos')
-    # tareas_ids = fields.One2many('project.task', 'project_id', string='Tareas')
-    # total_tareas = fields.Integer(string='Total de Tareas', compute='_compute_total_tareas', store=True)
+    tareas_ids = fields.One2many('project.task', 'project_id', string='Tareas')
+    total_tareas = fields.Integer(string='Total de Tareas', compute='_compute_total_tareas', store=True)
     
-    # @api.depends('tareas_ids')
-    # def _compute_total_tareas(self):
-    #     for proyecto in self:
-    #         proyecto.total_tareas = len(proyecto.tareas_ids)
-
-# class Tarea(models.Model):
-#     _name = 'project.task'
-#     _inherit = 'project.task'
-
-#     proyecto_id = fields.Many2one('proyecto', string='Proyecto')
-
+    @api.depends('tareas_ids')
+    def _compute_total_tareas(self):
+        for proyecto in self:
+            proyecto.total_tareas = len(proyecto.tareas_ids)
 

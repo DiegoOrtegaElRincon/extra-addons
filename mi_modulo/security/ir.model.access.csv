@@ -1,2 +1,16 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_proyecto_proyecto,proyecto.proyecto,model_proyecto_proyecto,base.group_user,1,1,1,1
+access_mi_modulo_empresa_contratista_administrador,mi_modulo.empresa_contratista.administrador,model_mi_modulo_empresa_contratista,mi_modulo.group_admin,1,1,1,1
+access_project_project_admin,model_project_project,project.model_project_project,group_admin,1,1,1,1
+access_project_task_admin,model_project_task,project.model_project_task,group_admin,1,1,1,1
+
+access_mi_modulo_empresa_contratista_jefe,mi_modulo.empresa_contratista.jefe,model_mi_modulo_empresa_contratista,mi_modulo.group_jefe_proyecto,1,1,1,1
+access_project_project_jefe,model_project_project,project.model_project_project,group_jefe_proyecto,1,1,1,1
+access_project_task_jefe,model_project_task,project.model_project_task,group_jefe_proyecto,1,1,1,1
+
+access_mi_modulo_empresa_contratista_analista,mi_modulo.empresa_contratista.analista,model_mi_modulo_empresa_contratista,group_analista,1,0,0,0
+access_project_project_analista,model_project_project,project.model_project_project,group_analista,1,0,0,0
+access_project_task_analista,model_project_task,project.model_project_task,group_analista,1,1,1,1
+
+access_mi_modulo_empresa_contratista_programador,mi_modulo.empresa_contratista.programador,model_mi_modulo_empresa_contratista,group_programador,1,0,0,0
+access_project_project_programador,model_project_project,project.model_project_project,group_programador,1,0,0,0
+access_project_task_programador,model_project_task,project.model_project_task,group_programador,1,1,0,0,[('user_id','=',user.id)]
