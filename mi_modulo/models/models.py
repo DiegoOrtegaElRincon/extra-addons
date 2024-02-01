@@ -20,11 +20,11 @@ class Proyecto(models.Model):
     _inherit = 'project.project'
 
     empresas_contratistas = fields.Many2one("empresas_contratistas",string="Empresa Contratista",inverse_name='proyectos')
-    tareas_ids = fields.One2many('project.task', 'project_id', string='Tareas')
+    tareas = fields.One2many('project.task', 'project_id', string='Tareas')
     total_tareas = fields.Integer(string='Total de Tareas', compute='_compute_total_tareas', store=True)
     
-    @api.depends('tareas_ids')
+    @api.depends('tareas')
     def _compute_total_tareas(self):
         for proyecto in self:
-            proyecto.total_tareas = len(proyecto.tareas_ids)
+            proyecto.total_tareas = len(proyecto.tareas)
 

@@ -33,14 +33,12 @@
       <field name="model">project.project</field>
       <field name="inherit_id" ref="project.edit_project" />
       <field name="arch" type="xml">
-          <xpath expr="//field[@name='name']" position="after">
-              <field name="empresas_contratistas"/>
-              <field name="tareas_ids" widget="one2many_list" colspan="3"/>
-              <field name="total_tareas" readonly="1"/>
-          </xpath>
+        <field name="partner_id" position="after">  
+          <field name="tareas" widget="form" colspan="3"/>
+        </field>
       </field>
-  </record>
-  
+    </record>
+
 
     <record model="ir.actions.act_window" id="mi_modulo.empresa_contratista_action_window">
       <field name="name">Empresa Contratista</field>
@@ -68,6 +66,14 @@
       name="Empresas" id="mi_modulo.empresa_contratista_menu_1"
       parent="mi_modulo.menu_root"
       action="mi_modulo.empresa_contratista_action_window" />
+    <menuitem
+      name="Proyecto" id="mi_modulo.empresa_contratista_menu_2"
+      parent="mi_modulo.menu_root"
+      action="mi_modulo.project_project_action_window" />
+    <menuitem
+      name="Tareas" id="mi_modulo.empresa_contratista_menu_3"
+      parent="mi_modulo.menu_root"
+      action="mi_modulo.project_task_action_window" />
 
   </data>
 </odoo>
