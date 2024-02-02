@@ -25,7 +25,7 @@
         'security/security.xml',
         'security/ir.model.access.csv',
         'views/views.xml',
-        # 'data/empresa_contratista_data.xml'
+        'data/empresa_contratista_data.xml'
         # 'views/templates.xml',
     ],
     # only loaded in demonstration mode

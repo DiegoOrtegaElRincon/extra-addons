@@ -1,22 +1,22 @@
 <odoo>
     <data noupdate="1">
-        <record id="empresa_contratista_sonic" model="mi_modulo.empresa_contratista">
+        <record id="empresa_contratista_1" model="mi_modulo.empresa_contratista">
             <field name="name">Acme Corporation</field>
             <field name="direccion">123 Industrial Way, Springfield, IL</field>
         </record>
-        <record id="empresa_contratista_sonic" model="mi_modulo.empresa_contratista">
+        <record id="empresa_contratista_2" model="mi_modulo.empresa_contratista">
             <field name="name">Orion Solutions</field>
             <field name="direccion">400 Tech Park, Austin, TX</field>
         </record>
-        <record id="empresa_contratista_sonic" model="mi_modulo.empresa_contratista">
+        <record id="empresa_contratista_3" model="mi_modulo.empresa_contratista">
             <field name="name">Bright Future Solar</field>
             <field name="direccion">88 Sunshine Blvd, Orlando, FL</field>
         </record>
-        <record id="empresa_contratista_sonic" model="mi_modulo.empresa_contratista">
+        <record id="empresa_contratista_4" model="mi_modulo.empresa_contratista">
             <field name="name">Green Leaf Landscaping</field>
             <field name="direccion">742 Evergreen Terrace, Boulder, CO</field>
         </record>
-        <record id="empresa_contratista_sonic" model="mi_modulo.empresa_contratista">
+        <record id="empresa_contratista_5" model="mi_modulo.empresa_contratista">
             <field name="name">Harmony Health Clinic</field>
             <field name="direccion">202 Wellness Road, San Francisco, CA</field>
         </record>
